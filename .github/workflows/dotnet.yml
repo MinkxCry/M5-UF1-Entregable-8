@@ -27,9 +27,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish --configuration Release
+      run: dotnet publish --configuration Release --output ./output
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GH_TOKEN }}
-        publish_dir: ./wwwroot
+        publish_dir: ./output/wwwroot
